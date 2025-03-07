@@ -1,6 +1,25 @@
+:root {
+    --md-text-font: "Red Hat Text";
+    --md-typeset-color: var(--rh-color-text-primary-on-light, #151515);
+}
+
+html,
+body {
+    font-size: var(--rh-font-size-body-text-lg, 1.125rem);
+}
+
 img {
-    border: 1px solid #cccccc;
-    transition: transform ease-in-out 0.3s;
+    /* border: 1px solid #cccccc;
+    transition: transform ease-in-out 0.3s; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--rh-font-family-heading, RedHatDisplay, "Red Hat Display", "Noto Sans Arabic", "Noto Sans Hebrew", "Noto Sans JP", "Noto Sans KR", "Noto Sans Malayalam", "Noto Sans SC", "Noto Sans TC", "Noto Sans Thai", Helvetica, Arial, sans-serif);
 }
 
 div.tx-hero__content img {
@@ -21,4 +40,20 @@ a.md-logo img {
 
 .md-nav__item--section>.md-nav__link[for] {
     color:grey;
+}
+
+.md-typeset {
+    font-size: var(--rh-font-size-body-text-lg, 1.125rem);
+}
+
+.md-typeset h1 {
+    color: var(--rh-color-text-primary-on-light, #151515);
+}
+
+.md-typeset a {
+    color: var(--rh-color-interactive-primary-default-on-light, #0066cc);
+}
+
+.md-typeset a:hover {
+    color: var(--rh-color-interactive-primary-hover-on-light, #003366);
 }

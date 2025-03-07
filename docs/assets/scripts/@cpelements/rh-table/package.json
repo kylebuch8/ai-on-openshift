@@ -1,0 +1,62 @@
+{
+  "name": "@cpelements/rh-table",
+  "description": "Cp table element for PatternFly Elements",
+  "pfelement": {
+    "className": "RhTable",
+    "elementName": "rh-table",
+    "files": {
+      "styles": "./src/rh-table.scss",
+      "template": "./src/rh-table.html",
+      "js": "./src/rh-table.js"
+    },
+    "assets": [
+      "rh-table--lightdom.*css"
+    ]
+  },
+  "version": "0.0.19",
+  "keywords": [
+    "web-components",
+    "html"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "github:redhataccess/cp-elements",
+    "directory": "elements/rh-table"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/rh-table.umd.js",
+  "module": "./dist/rh-table.js",
+  "unpkg": "./dist/rh-table.umd.min.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "../../node_modules/.bin/gulp",
+    "dev": "../../node_modules/.bin/gulp dev",
+    "test": "../../node_modules/.bin/wct --configFile ../../wct.conf.json elements/rh-table/test/"
+  },
+  "contributors": [
+    {
+      "name": "wesruv"
+    },
+    {
+      "name": "rlahoda"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@cpelements/cp-documentation": "^0.1.60",
+    "@patternfly/pfe-autocomplete": "^1.9.3",
+    "@patternfly/pfe-avatar": "^1.9.3",
+    "@patternfly/pfe-button": "^1.9.3",
+    "@patternfly/pfe-clipboard": "^1.11.2",
+    "@patternfly/pfe-datetime": "^1.9.3",
+    "@patternfly/pfe-icon": "^1.11.2",
+    "@patternfly/pfe-markdown": "^1.9.3",
+    "@patternfly/pfe-progress-indicator": "^1.9.3",
+    "@patternfly/pfe-sass": "1.9.0",
+    "@patternfly/pfelement": "1.10.1"
+  }
+}

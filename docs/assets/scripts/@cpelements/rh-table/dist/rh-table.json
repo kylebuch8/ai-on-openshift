@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Cp table",
+  "description": "Make tables less terrible",
+  "type": "object",
+  "tag": "rh-table",
+  "class": "RhTable",
+  "category": "container",
+  "properties": {
+    "slots": {
+      "title": "Slots",
+      "description": "Definition of the supported slots",
+      "type": "object",
+      "properties": {
+        "default": {
+          "title": "Default slot",
+          "type": "array",
+          "namedSlot": false,
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "raw"
+              }
+            ]
+          }
+        }
+      },
+      "required": ["default"]
+    },
+    "attributes": {
+      "title": "Attributes",
+      "type": "object",
+      "properties": {
+        "compact-mode": {
+          "title": "Compact-mode",
+          "type": "string",
+          "enum": [],
+          "default": "",
+          "prefixed": true
+        },
+        "sortable-cols": {
+          "title": "Sortable-cols",
+          "type": "string",
+          "enum": [],
+          "default": "",
+          "prefixed": true
+        }
+      },
+      "required": ["compact-mode"]
+    },
+    "events": {
+      "title": "Events",
+      "description": "Definition of the supported events",
+      "type": "object",
+      "properties": {
+        "sorted": {
+          "title": "Sorted",
+          "type": "string",
+          "default": "rh-table:sorted"
+        }
+      }
+    }
+  },
+  "required": ["slots", "attributes", "events"],
+  "additionalProperties": false
+}

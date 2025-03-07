@@ -1,0 +1,53 @@
+{
+  "name": "@cpelements/pfe-navigation",
+  "description": "Navigation element for PatternFly Elements",
+  "pfelement": {
+    "className": "PfeNavigation",
+    "elementName": "pfe-navigation",
+    "files": {
+      "styles": "./src/pfe-navigation.css",
+      "template": "./src/pfe-navigation.html",
+      "js": "./src/pfe-navigation.js"
+    },
+    "assets": [
+      "pfe-navigation--lightdom.*css",
+      "ie-polyfills.js"
+    ]
+  },
+  "version": "1.0.127",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "web-components",
+    "html"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "github:patternfly/patternfly-elements",
+    "directory": "elements/pfe-navigation"
+  },
+  "main": "./dist/pfe-navigation.umd.js",
+  "module": "./dist/pfe-navigation.js",
+  "unpkg": "./dist/pfe-navigation.umd.min.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "../../node_modules/.bin/gulp",
+    "dev": "../../node_modules/.bin/gulp dev",
+    "watch": "../../node_modules/.bin/gulp watch",
+    "test": "echo \"👉 Run tests from the project root with 'npm run test:watch --element=pfe-navigation'\""
+  },
+  "contributors": [
+    {
+      "name": "wesruv"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@patternfly/pfe-icon": "1.12.3",
+    "@patternfly/pfe-avatar": "1.12.3",
+    "@patternfly/pfelement": "1.12.3"
+  }
+}

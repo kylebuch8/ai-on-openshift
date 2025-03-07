@@ -1,29 +1,56 @@
 <!-- Elements added to main will be displayed on all pages -->
 {% extends "base.html" %}
 
-<!-- More minimal footer -->
-{% block footer %}
-<footer class="md-footer">
-    <div class="md-footer-meta md-typeset">
-        <div class="md-footer-meta__inner md-grid">
-            <!-- Copyright and theme information -->
-            <div class="md-footer-copyright">
-                {% if config.copyright %}
-                <div class="md-footer-copyright__highlight">
-                    {{ config.copyright }}
-                </div>
-                {% endif %}
-                powered by
-                <a href="https://www.mkdocs.org" title="MkDocs" target="_blank">MkDocs</a>
-                and
-                <a href="https://squidfunk.github.io/mkdocs-material/"
-                   title="Material for MkDocs" target="_blank">
-                    Material for MkDocs</a>
-            </div>
-            {% block social %}
-            {% include "partials/social.html" %}
-            {% endblock %}
-        </div>
-    </div>
-</footer>
+{% block extrahead %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<script type="importmap">
+{
+    "imports": {
+        "@rhds/elements/": "https://ga.jspm.io/npm:@rhds/elements@2.1.1/elements/",
+        "@rhds/icons/": "https://ga.jspm.io/npm:@rhds/icons@1.2.0/",
+        "@cpelements/elements/": "/assets/scripts/@cpelements/elements/elements/",
+        "@patternfly/elements/": "/assests/scripts/@patternfly/elements/"
+    },
+    "scopes": {
+        "https://ga.jspm.io/": {
+            "@floating-ui/core": "https://ga.jspm.io/npm:@floating-ui/core@1.6.9/dist/floating-ui.core.mjs",
+            "@floating-ui/dom": "https://ga.jspm.io/npm:@floating-ui/dom@1.6.13/dist/floating-ui.dom.mjs",
+            "@floating-ui/utils": "https://ga.jspm.io/npm:@floating-ui/utils@0.2.9/dist/floating-ui.utils.mjs",
+            "@floating-ui/utils/dom": "https://ga.jspm.io/npm:@floating-ui/utils@0.2.9/dist/floating-ui.utils.dom.mjs",
+            "@lit/context": "https://ga.jspm.io/npm:@lit/context@1.1.4/index.js",
+            "@lit/reactive-element": "https://ga.jspm.io/npm:@lit/reactive-element@2.0.4/reactive-element.js",
+            "@lit/reactive-element/decorators/": "https://ga.jspm.io/npm:@lit/reactive-element@2.0.4/decorators/",
+            "@patternfly/pfe-core": "https://ga.jspm.io/npm:@patternfly/pfe-core@4.0.5/core.js",
+            "@patternfly/pfe-core/": "https://ga.jspm.io/npm:@patternfly/pfe-core@4.0.5/",
+            "@patternfly/pfe-core/ssr-shims.js": "https://ga.jspm.io/npm:@patternfly/pfe-core@4.0.5/core.js",
+            "@rhds/elements/lib/": "https://ga.jspm.io/npm:@rhds/elements@2.1.1/lib/",
+            "@rhds/elements/": "https://ga.jspm.io/npm:@rhds/elements@2.1.1/elements/",
+            "@rhds/icons": "https://ga.jspm.io/npm:@rhds/icons@1.2.0/icons.js",
+            "@rhds/icons/ui/": "https://ga.jspm.io/npm:@rhds/icons@1.2.0/ui/",
+            "@rhds/tokens/css/": "https://ga.jspm.io/npm:@rhds/tokens@2.2.4/css/",
+            "@rhds/tokens/media.js": "https://ga.jspm.io/npm:@rhds/tokens@2.2.4/js/media.js",
+            "lit": "https://ga.jspm.io/npm:lit@3.2.1/index.js",
+            "lit-element/lit-element.js": "https://ga.jspm.io/npm:lit-element@4.1.1/lit-element.js",
+            "lit-html": "https://ga.jspm.io/npm:lit-html@3.2.1/lit-html.js",
+            "lit-html/": "https://ga.jspm.io/npm:lit-html@3.2.1/",
+            "lit/": "https://ga.jspm.io/npm:lit@3.2.1/",
+            "prism-esm": "https://ga.jspm.io/npm:prism-esm@1.29.0-fix.6/prism.js",
+            "prism-esm/components/": "https://ga.jspm.io/npm:prism-esm@1.29.0-fix.6/components/",
+            "tslib": "https://ga.jspm.io/npm:tslib@2.8.1/tslib.es6.mjs"
+        }
+    }
+}
+</script>
+<script type="module">
+    import "@rhds/elements/rh-footer/rh-footer.js";
+    import "@rhds/elements/rh-cta/rh-cta.js";
+    import "/assets/scripts/@cpelements/pfe-navigation/dist/pfe-navigation.min.js";
+</script>
+<link rel="stylesheet" href="https://ga.jspm.io/npm:@rhds/elements@2.1.1/elements/rh-footer/rh-footer-lightdom.css">
+<link rel="stylesheet" href="https://ga.jspm.io/npm:@rhds/elements@2.1.1/elements/rh-tile/rh-tile-lightdom.css">
+<link rel="stylesheet" href="https://ga.jspm.io/npm:@rhds/elements@2.1.1/elements/rh-navigation-secondary/rh-navigation-secondary-lightdom.css">
+<link rel="stylesheet" href="/assets/scripts/@cpelements/pfe-navigation/dist/pfe-navigation--lightdom.min.css" />
+{{ super() }}
 {% endblock %}
