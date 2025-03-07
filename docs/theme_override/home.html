@@ -119,6 +119,25 @@
         display: block;
     }
 
+    #main-container {
+        background-image: url(assets/ai-hero-abstract-purple-cube-stack-desktop.webp);
+        background-position: right bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-size: 81rem 27rem;
+        padding-bottom: var(--rh-space-6xl, 96px);
+    }
+
+    #promo {
+        & rh-card::part(container) {
+            background-color: transparent;
+        }
+    }
+
+    .md-main {
+        display: none;
+    }
+
     @media screen and (max-width:30em) {
         .tx-hero h1 {
             font-size: 1.4rem
@@ -271,56 +290,57 @@
     import "@rhds/elements/rh-cta/rh-cta.js";
 </script>
 
-<!-- Main site Entry button descriptions -->
-<section>
-    <div class="full-width">
-        <rh-card variant="promo" full-width="">
-            <img slot="image" src="assets/robot.png" draggable="false">
-            <h2 slot="header">AI on OpenShift</h2>
-            <p>The one-stop shop for AI/ML, Data Science and Data Engineering on OpenShift!</p>
-            <rh-cta slot="footer" variant="primary"><a href="/getting-started/why-this-site/">Get started</a></rh-cta>
-        </rh-card>
-    </div>
-</section>
-<!-- <section class="tx-container">
-    <div class="md-grid md-typeset">
-        <div class="tx-hero">
-            <div class="tx-hero__image">
-                <img src="assets/robot.png" draggable="false">
-            </div>
-            <div class="tx-hero__content">
-                <img src="assets/ai-on-openshift-title.svg" draggable="false">
-                <h2>The one-stop shop for AI/ML,<br/>Data Science and Data Engineering<br/>on OpenShift!</h2>
-                <a href="/getting-started/why-this-site/" title="Getting started"
-                    class="md-button md-button--primary">
-                    Get started
-                </a>
+<div id="main-container">
+    <!-- Main site Entry button descriptions -->
+    <section id="promo">
+        <div class="full-width">
+            <rh-card variant="promo" full-width="">
+                <!-- <img slot="image" src="assets/robot.png" draggable="false"> -->
+                <h2 slot="header">AI on OpenShift</h2>
+                <p>The one-stop shop for AI/ML, Data Science and Data Engineering on OpenShift!</p>
+                <rh-cta slot="footer" variant="primary"><a href="/getting-started/why-this-site/">Get started</a></rh-cta>
+            </rh-card>
+        </div>
+    </section>
+    <!-- <section class="tx-container">
+        <div class="md-grid md-typeset">
+            <div class="tx-hero">
+                <div class="tx-hero__image">
+                    <img src="assets/robot.png" draggable="false">
+                </div>
+                <div class="tx-hero__content">
+                    <img src="assets/ai-on-openshift-title.svg" draggable="false">
+                    <h2>The one-stop shop for AI/ML,<br/>Data Science and Data Engineering<br/>on OpenShift!</h2>
+                    <a href="/getting-started/why-this-site/" title="Getting started"
+                        class="md-button md-button--primary">
+                        Get started
+                    </a>
+                </div>
             </div>
         </div>
+    </section> -->
+
+    <!-- Main site box descriptions -->
+
+    <div class="container flex">
+        <rh-tile color-palette="lightest">
+            <rh-icon slot="image" set="standard" icon="toolbox"></rh-icon>
+            <h2 slot="headline"><a href="/tools-and-applications/airflow/airflow/">Tools and Applications</a></h2>
+            <p>Howtos, recipes, and best practices to install and run on OpenShift various tools and applications related to data science and data engineering.</p>
+        </rh-tile>
+        <rh-tile color-palette="lightest">
+            <rh-icon slot="image" set="standard" icon="cluster"></rh-icon>
+            <h2 slot="headline"><a href="/patterns/bucket-notifications/bucket-notifications">Patterns</a></h2>
+            <p>Reusable architectural patterns with code and examples to help quickly setup your data pipelines.</p>
+        </rh-tile>
+        <rh-tile color-palette="lightest">
+            <rh-icon slot="image" set="standard" icon="monitor-blank"></rh-icon>
+            <h2 slot="headline"><a href="/demos/credit-card-fraud-detection-mlflow/credit-card-fraud">Demos</a></h2>
+            <p>Full-blown demos illustrating through concrete use cases how you can use the different
+                tools and patterns to create you own intelligent solutions.</p>
+        </rh-tile>
     </div>
-</section> -->
-
-<!-- Main site box descriptions -->
-
-<div class="container flex">
-    <rh-tile>
-        <rh-icon slot="image" set="standard" icon="toolbox"></rh-icon>
-        <h2 slot="headline"><a href="/tools-and-applications/airflow/airflow/">Tools and Applications</a></h2>
-        <p>Howtos, recipes, and best practices to install and run on OpenShift various tools and applications related to data science and data engineering.</p>
-    </rh-tile>
-    <rh-tile>
-        <rh-icon slot="image" set="standard" icon="cluster"></rh-icon>
-        <h2 slot="headline"><a href="/patterns/bucket-notifications/bucket-notifications">Patterns</a></h2>
-        <p>Reusable architectural patterns with code and examples to help quickly setup your data pipelines.</p>
-    </rh-tile>
-    <rh-tile>
-        <rh-icon slot="image" set="standard" icon="monitor-blank"></rh-icon>
-        <h2 slot="headline"><a href="/demos/credit-card-fraud-detection-mlflow/credit-card-fraud">Demos</a></h2>
-        <p>Full-blown demos illustrating through concrete use cases how you can use the different
-            tools and patterns to create you own intelligent solutions.</p>
-    </rh-tile>
 </div>
-
 
 {% endblock %}
 {% block content %}{% endblock %}
