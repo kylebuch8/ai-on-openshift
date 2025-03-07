@@ -9,6 +9,8 @@ site_description: >-
 repo_url: https://github.com/opendatahub-io-contrib/ai-on-openshift
 edit_uri: ''  #disables edit button
 
+use_directory_url: false
+
 ## Plugins
 plugins:
   - social:
