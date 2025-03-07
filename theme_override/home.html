@@ -1,0 +1,346 @@
+<!-- Custom HTML site displayed as the Home chapter -->
+
+{% extends "main.html" %}
+{% block tabs %}
+{{ super() }}
+<style>
+    .md-main {
+        flex-grow: 0
+    }
+
+    .md-main__inner {
+        display: flex;
+        height: 100%;
+    }
+
+    .tx-container {
+        padding-top: .0rem;
+        position: relative;
+    }
+
+    .tx-container::before {
+        /*using pseudo element to change background image opacity*/
+        content: " ";
+        background-image: url(assets/landscape.avif);
+        background-image: url(assets/landscape.avif), linear-gradient(to bottom, #af1a4f, #05061c 99%);
+        background-size: cover;
+        position: absolute;
+        opacity: 0.75;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        z-index: -1;
+        /* Below other contents */
+    }
+
+    .tx-hero {
+        margin: 32px 2.8rem;
+        color: var(--md-primary-bg-color);
+        justify-content: center;
+    }
+
+    .tx-hero h1 {
+        margin-bottom: 1rem;
+        color: currentColor;
+        font-weight: 700
+    }
+
+    .tx-hero__content {
+        padding-bottom: 1rem;
+        margin: 0 auto;
+    }
+
+    .tx-hero__image {
+        width: 17rem;
+        height: 17rem;
+        order: 1;
+        padding-top: 1rem;
+        padding-right: 2.5rem;
+    }
+
+    .tx-hero .md-button {
+        margin-top: .5rem;
+        margin-right: .5rem;
+        margin-left: 5rem;
+        color: var(--md-primary-bg-color)
+    }
+
+    .tx-hero .md-button--primary {
+        background-color: var(--md-primary-bg-color);
+        color: rgb(255, 0, 0);
+        border-color: var(--md-primary-bg-color)
+    }
+
+    .tx-hero .md-button:focus,
+    .tx-hero .md-button:hover {
+        background-color: var(--md-accent-fg-color);
+        color: var(--md-default-bg-color);
+        border-color: var(--md-accent-fg-color)
+    }
+
+    .feature-item h2 svg {
+        height: 30px;
+        float: left;
+        margin-right: 10px;
+        transform: translateY(10%);
+    }
+
+    .top-hr {
+        margin-top: 42px;
+        background-color: #fff;
+    }
+
+    .feature-item {
+        box-sizing: border-box;
+        padding: 0 15px;
+        word-break: break-word
+    }
+
+    .feature-item h2 {
+        color: #333;
+        font-weight: 300;
+        font-size: 25px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: normal;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-family: inherit;
+    }
+
+    .feature-item p {
+        line-height: 1.8em;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        color: #111;
+        margin: 0 0 10px;
+        display: block;
+    }
+
+    #main-container {
+        background-image: url(assets/ai-hero-abstract-purple-cube-stack-desktop.webp);
+        background-position: right bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-size: 81rem 27rem;
+        padding-bottom: var(--rh-space-6xl, 96px);
+    }
+
+    #promo {
+        & rh-card::part(container) {
+            background-color: transparent;
+        }
+    }
+
+    .md-main {
+        display: none;
+    }
+
+    @media screen and (max-width:30em) {
+        .tx-hero h1 {
+            font-size: 1.4rem
+        }
+    }
+
+    @media screen and (min-width:60em) {
+        .md-sidebar--secondary {
+            display: none
+        }
+
+        .tx-hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tx-hero__content {
+            max-width: 22rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            margin-left: 1.0rem;
+            margin-right: 4.0rem;
+            align-items: center;
+        }
+    }
+
+    @media screen and (min-width:76.25em) {
+        .md-sidebar--primary {
+            display: none
+        }
+
+        .top-hr {
+            width: 100%;
+            display: flex;
+            max-width: 61rem;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 .2rem;
+        }
+
+        .bottom-hr {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            max-width: 61rem;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 .2rem;
+        }
+
+        .feature-item {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .feature-item:hover {
+            background-color: #fe525247;
+            border-radius: 3px;
+        }
+    }
+
+    .hr {
+        border-bottom: 1px solid #eee;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .text-center {
+        text-align: center;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 15px;
+        font-size: 23px;
+        padding-bottom: 10px;
+    }
+
+    .logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        margin: 0 auto;
+    }
+
+    .logos img {
+        flex: 1 1 auto;
+        padding: 25px;
+        max-height: 130px;
+        vertical-align: middle;
+    }
+
+    .hr-logos {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .md-footer-meta__inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 1.0rem;
+    }
+
+    .md-footer-social {
+        padding-top: 20px;
+    }
+
+    .full-width {
+        container: full-width / inline-size;
+        display: grid;
+        gap: var(--rh-space-lg, 16px);
+        grid-auto-rows: max-content;
+        max-width: 1440px;
+        margin: auto;
+    }
+
+    .container {
+        max-width: 1440px;
+        margin: auto;
+    }
+
+    .flex {
+        display: flex;
+        gap: var(--rh-space-2xl, 32px);
+
+        & > rh-tile {
+            flex-basis: 0;
+            flex-grow: 1;
+        }
+    }
+
+    @container full-width (min-width: 768px) {
+        .reverse::part(container) {
+            grid-template-columns: 1fr 2fr;
+        }
+
+        .reverse::part(image) {
+            justify-self: start;
+            order: -10;
+        }
+    }
+</style>
+<script type="module">
+    import "@rhds/elements/rh-tile/rh-tile.js";
+    import "@rhds/elements/rh-icon/rh-icon.js";
+    import "@rhds/elements/rh-card/rh-card.js";
+    import "@rhds/elements/rh-cta/rh-cta.js";
+</script>
+
+<div id="main-container">
+    <!-- Main site Entry button descriptions -->
+    <section id="promo">
+        <div class="full-width">
+            <rh-card variant="promo" full-width="">
+                <!-- <img slot="image" src="assets/robot.png" draggable="false"> -->
+                <h2 slot="header">AI on OpenShift</h2>
+                <p>The one-stop shop for AI/ML, Data Science and Data Engineering on OpenShift!</p>
+                <rh-cta slot="footer" variant="primary"><a href="/getting-started/why-this-site/">Get started</a></rh-cta>
+            </rh-card>
+        </div>
+    </section>
+    <!-- <section class="tx-container">
+        <div class="md-grid md-typeset">
+            <div class="tx-hero">
+                <div class="tx-hero__image">
+                    <img src="assets/robot.png" draggable="false">
+                </div>
+                <div class="tx-hero__content">
+                    <img src="assets/ai-on-openshift-title.svg" draggable="false">
+                    <h2>The one-stop shop for AI/ML,<br/>Data Science and Data Engineering<br/>on OpenShift!</h2>
+                    <a href="/getting-started/why-this-site/" title="Getting started"
+                        class="md-button md-button--primary">
+                        Get started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Main site box descriptions -->
+
+    <div class="container flex">
+        <rh-tile color-palette="lightest">
+            <rh-icon slot="image" set="standard" icon="toolbox"></rh-icon>
+            <h2 slot="headline"><a href="/tools-and-applications/airflow/airflow/">Tools and Applications</a></h2>
+            <p>Howtos, recipes, and best practices to install and run on OpenShift various tools and applications related to data science and data engineering.</p>
+        </rh-tile>
+        <rh-tile color-palette="lightest">
+            <rh-icon slot="image" set="standard" icon="cluster"></rh-icon>
+            <h2 slot="headline"><a href="/patterns/bucket-notifications/bucket-notifications">Patterns</a></h2>
+            <p>Reusable architectural patterns with code and examples to help quickly setup your data pipelines.</p>
+        </rh-tile>
+        <rh-tile color-palette="lightest">
+            <rh-icon slot="image" set="standard" icon="monitor-blank"></rh-icon>
+            <h2 slot="headline"><a href="/demos/credit-card-fraud-detection-mlflow/credit-card-fraud">Demos</a></h2>
+            <p>Full-blown demos illustrating through concrete use cases how you can use the different
+                tools and patterns to create you own intelligent solutions.</p>
+        </rh-tile>
+    </div>
+</div>
+
+{% endblock %}
+{% block content %}{% endblock %}

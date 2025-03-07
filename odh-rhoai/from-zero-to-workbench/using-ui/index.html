@@ -1,0 +1,4334 @@
+<!-- Elements added to main will be displayed on all pages -->
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The one-stop shop for Data Science and Data Engineering on OpenShift! Tools and applications, patterns, demos, tips and tricks, everything needed by Data Science and Data Engineering practitioners on OpenShift.">
+      
+      
+      
+        <link rel="canonical" href="https://ai-on-openshift.io/odh-rhoai/from-zero-to-workbench/using-ui/">
+      
+      
+        <link rel="prev" href="../using-cli/">
+      
+      
+        <link rel="next" href="../using-developer-hub/">
+      
+      
+      <link rel="icon" href="../../../assets/robot-head.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>Using the UI - AI on OpenShift</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-EXFP0W7LTY"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-EXFP0W7LTY",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-EXFP0W7LTY",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Using the UI - AI on OpenShift" >
+      
+        <meta  property="og:description"  content="The one-stop shop for Data Science and Data Engineering on OpenShift! Tools and applications, patterns, demos, tips and tricks, everything needed by Data Science and Data Engineering practitioners on OpenShift." >
+      
+        <meta  property="og:image"  content="https://ai-on-openshift.io/assets/images/social/odh-rhoai/from-zero-to-workbench/using-ui.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://ai-on-openshift.io/odh-rhoai/from-zero-to-workbench/using-ui/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Using the UI - AI on OpenShift" >
+      
+        <meta  name="twitter:description"  content="The one-stop shop for Data Science and Data Engineering on OpenShift! Tools and applications, patterns, demos, tips and tricks, everything needed by Data Science and Data Engineering practitioners on OpenShift." >
+      
+        <meta  name="twitter:image"  content="https://ai-on-openshift.io/assets/images/social/odh-rhoai/from-zero-to-workbench/using-ui.png" >
+      
+    
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<script type="importmap">
+{
+    "imports": {
+        "@rhds/elements/": "https://ga.jspm.io/npm:@rhds/elements@2.1.1/elements/",
+        "@rhds/icons/": "https://ga.jspm.io/npm:@rhds/icons@1.2.0/",
+        "@cpelements/elements/": "/assets/scripts/@cpelements/elements/elements/",
+        "@patternfly/elements/": "/assests/scripts/@patternfly/elements/"
+    },
+    "scopes": {
+        "https://ga.jspm.io/": {
+            "@floating-ui/core": "https://ga.jspm.io/npm:@floating-ui/core@1.6.9/dist/floating-ui.core.mjs",
+            "@floating-ui/dom": "https://ga.jspm.io/npm:@floating-ui/dom@1.6.13/dist/floating-ui.dom.mjs",
+            "@floating-ui/utils": "https://ga.jspm.io/npm:@floating-ui/utils@0.2.9/dist/floating-ui.utils.mjs",
+            "@floating-ui/utils/dom": "https://ga.jspm.io/npm:@floating-ui/utils@0.2.9/dist/floating-ui.utils.dom.mjs",
+            "@lit/context": "https://ga.jspm.io/npm:@lit/context@1.1.4/index.js",
+            "@lit/reactive-element": "https://ga.jspm.io/npm:@lit/reactive-element@2.0.4/reactive-element.js",
+            "@lit/reactive-element/decorators/": "https://ga.jspm.io/npm:@lit/reactive-element@2.0.4/decorators/",
+            "@patternfly/pfe-core": "https://ga.jspm.io/npm:@patternfly/pfe-core@4.0.5/core.js",
+            "@patternfly/pfe-core/": "https://ga.jspm.io/npm:@patternfly/pfe-core@4.0.5/",
+            "@patternfly/pfe-core/ssr-shims.js": "https://ga.jspm.io/npm:@patternfly/pfe-core@4.0.5/core.js",
+            "@rhds/elements/lib/": "https://ga.jspm.io/npm:@rhds/elements@2.1.1/lib/",
+            "@rhds/elements/": "https://ga.jspm.io/npm:@rhds/elements@2.1.1/elements/",
+            "@rhds/icons": "https://ga.jspm.io/npm:@rhds/icons@1.2.0/icons.js",
+            "@rhds/icons/ui/": "https://ga.jspm.io/npm:@rhds/icons@1.2.0/ui/",
+            "@rhds/tokens/css/": "https://ga.jspm.io/npm:@rhds/tokens@2.2.4/css/",
+            "@rhds/tokens/media.js": "https://ga.jspm.io/npm:@rhds/tokens@2.2.4/js/media.js",
+            "lit": "https://ga.jspm.io/npm:lit@3.2.1/index.js",
+            "lit-element/lit-element.js": "https://ga.jspm.io/npm:lit-element@4.1.1/lit-element.js",
+            "lit-html": "https://ga.jspm.io/npm:lit-html@3.2.1/lit-html.js",
+            "lit-html/": "https://ga.jspm.io/npm:lit-html@3.2.1/",
+            "lit/": "https://ga.jspm.io/npm:lit@3.2.1/",
+            "prism-esm": "https://ga.jspm.io/npm:prism-esm@1.29.0-fix.6/prism.js",
+            "prism-esm/components/": "https://ga.jspm.io/npm:prism-esm@1.29.0-fix.6/components/",
+            "tslib": "https://ga.jspm.io/npm:tslib@2.8.1/tslib.es6.mjs"
+        }
+    }
+}
+</script>
+<script type="module">
+    import "@rhds/elements/rh-footer/rh-footer.js";
+    import "@rhds/elements/rh-cta/rh-cta.js";
+    import "https://cdn.jsdelivr.net/npm/@cpelements/pfe-navigation@1.0.134/dist/pfe-navigation.min.js";
+</script>
+<link rel="stylesheet" href="https://ga.jspm.io/npm:@rhds/elements@2.1.1/elements/rh-footer/rh-footer-lightdom.css">
+<link rel="stylesheet" href="https://ga.jspm.io/npm:@rhds/elements@2.1.1/elements/rh-tile/rh-tile-lightdom.css">
+<link rel="stylesheet" href="https://ga.jspm.io/npm:@rhds/elements@2.1.1/elements/rh-navigation-secondary/rh-navigation-secondary-lightdom.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@cpelements/pfe-navigation@1.0.134/dist/pfe-navigation--lightdom.min.css" />
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#from-zero-to-workbench-using-the-gui" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<script type="module">
+  import "@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js";
+</script>
+
+<!-- Determine classes -->
+
+
+  
+
+
+
+
+<script type="module">
+  // import "@rhds/elements/rh-footer/rh-footer.js";
+  // import "@rhds/elements/rh-button/rh-button.js";
+  // import "@rhds/elements/rh-cta/rh-cta.js";
+
+  const allRedHat = document.querySelector('#all-red-hat');
+  const upperNavDropdownContainer = document.querySelector('.upper-nav-dropdown-container');
+  const pfeNavSearchForm = document.querySelector('#pfe-nav-search');
+  const pfeNavSearchInput = document.querySelector('#inputBox');
+
+  const toggleAllRedHat = () => {
+    const expanded = allRedHat.getAttribute('aria-expanded');
+    allRedHat.setAttribute('aria-expanded', expanded === 'false' ? 'true' : 'false');
+    upperNavDropdownContainer.classList.toggle('show');
+  };
+
+  const closeAllRedHat = () => {
+    allRedHat.setAttribute('aria-expanded', 'false');
+    upperNavDropdownContainer.classList.remove('show');
+    allRedHat.focus();
+  };
+
+  allRedHat.addEventListener('click', toggleAllRedHat);
+  document.addEventListener('keyup', event => {
+    if (event.key === 'Escape') {
+      closeAllRedHat();
+    }
+  });
+
+  pfeNavSearchForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    window.location = `/search/?q=${pfeNavSearchInput.value}&p=1&rows=10&documentKind=Documentation`;
+  });
+</script>
+<style>
+.grid {
+  display: grid;
+  gap: var(--rh-space-xl, 24px)
+}
+
+.grid-center {
+  margin: auto;
+}
+
+.grid.grid-col-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid.grid-col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid.grid-col-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid.grid-col-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid.grid-col-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.grid.grid-col-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.grid.grid-col-8 {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.grid.grid-col-9 {
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.grid.grid-col-10 {
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.grid.grid-col-11 {
+  grid-template-columns: repeat(11, 1fr);
+}
+
+.grid.grid-col-12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+@media (min-width: 576px) {
+  .grid.grid-col-sm-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid.grid-col-sm-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid.grid-col-sm-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid.grid-col-sm-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .grid.grid-col-sm-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .grid.grid-col-sm-7 {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .grid.grid-col-sm-8 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .grid.grid-col-sm-9 {
+    grid-template-columns: repeat(9, 1fr);
+  }
+
+  .grid.grid-col-sm-10 {
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  .grid.grid-col-sm-11 {
+    grid-template-columns: repeat(11, 1fr);
+  }
+
+  .grid.grid-col-sm-12 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid.grid-col-md-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid.grid-col-md-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid.grid-col-md-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid.grid-col-md-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .grid.grid-col-md-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .grid.grid-col-md-7 {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .grid.grid-col-md-8 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .grid.grid-col-md-9 {
+    grid-template-columns: repeat(9, 1fr);
+  }
+
+  .grid.grid-col-md-10 {
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  .grid.grid-col-md-11 {
+    grid-template-columns: repeat(11, 1fr);
+  }
+
+  .grid.grid-col-md-12 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .grid.grid-col-lg-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid.grid-col-lg-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid.grid-col-lg-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid.grid-col-lg-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .grid.grid-col-lg-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .grid.grid-col-lg-7 {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .grid.grid-col-lg-8 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .grid.grid-col-lg-9 {
+    grid-template-columns: repeat(9, 1fr);
+  }
+
+  .grid.grid-col-lg-10 {
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  .grid.grid-col-lg-11 {
+    grid-template-columns: repeat(11, 1fr);
+  }
+
+  .grid.grid-col-lg-12 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.span-1 {
+  grid-column: span 1;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.span-3 {
+  grid-column: span 3;
+}
+
+.span-4 {
+  grid-column: span 4;
+}
+
+.span-5 {
+  grid-column: span 5;
+}
+
+.span-6 {
+  grid-column: span 6;
+}
+
+.span-7 {
+  grid-column: span 7;
+}
+
+.span-8 {
+  grid-column: span 8;
+}
+
+.span-9 {
+  grid-column: span 9;
+}
+
+.span-10 {
+  grid-column: span 10;
+}
+
+.span-11 {
+  grid-column: span 11;
+}
+
+.span-12 {
+  grid-column: span 12;
+}
+
+@media (min-width: 399px) {
+  .span-xs-1 {
+    grid-column: span 1;
+  }
+
+  .span-xs-2 {
+    grid-column: span 2;
+  }
+
+  .span-xs-3 {
+    grid-column: span 3;
+  }
+
+  .span-xs-4 {
+    grid-column: span 4;
+  }
+
+  .span-xs-5 {
+    grid-column: span 5;
+  }
+
+  .span-xs-6 {
+    grid-column: span 6;
+  }
+
+  .span-xs-7 {
+    grid-column: span 7;
+  }
+
+  .span-xs-8 {
+    grid-column: span 8;
+  }
+
+  .span-xs-9 {
+    grid-column: span 9;
+  }
+
+  .span-xs-10 {
+    grid-column: span 10;
+  }
+
+  .span-xs-11 {
+    grid-column: span 11;
+  }
+
+  .span-xs-12 {
+    grid-column: span 12;
+  }
+}
+
+@media (min-width: 768px) {
+  .span-md-1 {
+    grid-column: span 1;
+  }
+
+  .span-md-2 {
+    grid-column: span 2;
+  }
+
+  .span-md-3 {
+    grid-column: span 3;
+  }
+
+  .span-md-4 {
+    grid-column: span 4;
+  }
+
+  .span-md-5 {
+    grid-column: span 5;
+  }
+
+  .span-md-6 {
+    grid-column: span 6;
+  }
+
+  .span-md-7 {
+    grid-column: span 7;
+  }
+
+  .span-md-8 {
+    grid-column: span 8;
+  }
+
+  .span-md-9 {
+    grid-column: span 9;
+  }
+
+  .span-md-10 {
+    grid-column: span 10;
+  }
+
+  .span-md-11 {
+    grid-column: span 11;
+  }
+
+  .span-md-12 {
+    grid-column: span 12;
+  }
+}
+
+@media (min-width: 992px) {
+  .span-lg-1 {
+    grid-column: span 1;
+  }
+
+  .span-lg-2 {
+    grid-column: span 2;
+  }
+
+  .span-lg-3 {
+    grid-column: span 3;
+  }
+
+  .span-lg-4 {
+    grid-column: span 4;
+  }
+
+  .span-lg-5 {
+    grid-column: span 5;
+  }
+
+  .span-lg-6 {
+    grid-column: span 6;
+  }
+
+  .span-lg-7 {
+    grid-column: span 7;
+  }
+
+  .span-lg-8 {
+    grid-column: span 8;
+  }
+
+  .span-lg-9 {
+    grid-column: span 9;
+  }
+
+  .span-lg-10 {
+    grid-column: span 10;
+  }
+
+  .span-lg-11 {
+    grid-column: span 11;
+  }
+
+  .span-lg-12 {
+    grid-column: span 12;
+  }
+}
+
+@media (min-width: 1025px) {
+  .span-xl-1 {
+    grid-column: span 1;
+  }
+
+  .span-xl-2 {
+    grid-column: span 2;
+  }
+
+  .span-xl-3 {
+    grid-column: span 3;
+  }
+
+  .span-xl-4 {
+    grid-column: span 4;
+  }
+
+  .span-xl-5 {
+    grid-column: span 5;
+  }
+
+  .span-xl-6 {
+    grid-column: span 6;
+  }
+
+  .span-xl-7 {
+    grid-column: span 7;
+  }
+
+  .span-xl-8 {
+    grid-column: span 8;
+  }
+
+  .span-xl-9 {
+    grid-column: span 9;
+  }
+
+  .span-xl-10 {
+    grid-column: span 10;
+  }
+
+  .span-xl-11 {
+    grid-column: span 11;
+  }
+
+  .span-xl-12 {
+    grid-column: span 12;
+  }
+}
+
+@media (min-width: 1200px) {
+  .span-2xl-1 {
+    grid-column: span 1;
+  }
+
+  .span-2xl-2 {
+    grid-column: span 2;
+  }
+
+  .span-2xl-3 {
+    grid-column: span 3;
+  }
+
+  .span-2xl-4 {
+    grid-column: span 4;
+  }
+
+  .span-2xl-5 {
+    grid-column: span 5;
+  }
+
+  .span-2xl-6 {
+    grid-column: span 6;
+  }
+
+  .span-2xl-7 {
+    grid-column: span 7;
+  }
+
+  .span-2xl-8 {
+    grid-column: span 8;
+  }
+
+  .span-2xl-9 {
+    grid-column: span 9;
+  }
+
+  .span-2xl-10 {
+    grid-column: span 10;
+  }
+
+  .span-2xl-11 {
+    grid-column: span 11;
+  }
+
+  .span-2xl-12 {
+    grid-column: span 12;
+  }
+}
+
+.upper-navigation {
+  background-color: #151515;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.upper-navigation {
+  padding: 0 var(--rh-space-2xl, 32px);
+}
+
+.upper-nav-container {
+  margin: 0;
+  border-bottom: 1px solid #404040;
+}
+
+.upper-nav-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.upper-nav-menu {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  line-height: 1.444;
+}
+
+.upper-nav-menu>li {
+  position: relative;
+}
+
+.upper-nav-menu>li:not(:first-child)>a:before,
+.upper-nav-menu>li:not(:first-child)>button:before {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 40%;
+  left: 0;
+  top: 30%;
+  background-color: #404040;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  margin: 0;
+  padding: 0;
+}
+
+.upper-nav-menu button.upper-nav-links {
+  border: 0;
+  border-top: 3px solid transparent;
+  line-height: 1.444;
+  cursor: pointer;
+}
+
+.upper-nav-menu button.upper-nav-links[aria-expanded="true"] {
+  outline-color: #151515;
+}
+
+.upper-nav-menu button.upper-nav-links[aria-expanded="true"] .upper-nav-arrow {
+  transform: rotate(270deg);
+  filter: invert(0%) sepia(2%) saturate(21%) hue-rotate(257deg) brightness(108%) contrast(100%);
+}
+
+.upper-nav-menu button.upper-nav-links[aria-expanded="true"]::before {
+  display: none;
+}
+
+.upper-nav-menu .upper-nav-links {
+  background-color: var(--pfe-navigation--BackgroundColor, var(--pfe-theme--color--surface--darkest, #151515));
+  padding: 12px 12px 14px;
+  border-top: 3px solid transparent;
+  outline: none;
+  text-decoration: none;
+  display: block;
+  color: #fff;
+  /* font-size: var(--rh-font-size-body-text-sm, 0.875rem); */
+  font-size: 14px;
+  font-family: var(--rh-font-family-body-text, "Red Hat Text", "RedHatText", Arial, sans-serif);
+}
+
+.upper-nav-menu .upper-nav-links:hover {
+  border-top-color: #b8bbbe;
+}
+
+.upper-nav-menu .upper-nav-links:focus-within {
+  outline: 1px dashed var(--rh-color-white, #ffffff);
+  outline-offset: -1px;
+}
+
+.upper-nav-menu .upper-nav-links:focus-within::before {
+  display: none;
+}
+
+.upper-nav-dropdown-container {
+  padding: 5px 30px 24px 30px;
+  position: absolute;
+  background: white;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.098);
+  display: none;
+  width: 500px;
+  right: 0;
+  top: 100%;
+  z-index: 105;
+}
+
+.upper-nav-dropdown-container>ul {
+  padding: 0;
+  width: auto;
+  column-count: 2;
+  list-style-type: none;
+}
+
+.upper-nav-dropdown-container>ul li {
+  list-style-type: none;
+  font-size: var(--rh-font-size-body-text-sm, 0.875rem);
+  margin-bottom: 0;
+  font-family: var(--rh-font-family-heading, "Red Hat Display", Helvetica, Arial, sans-serif);
+  color: #151515;
+}
+
+.upper-nav-dropdown-container>ul li span {
+  font-weight: var(--rh-font-weight-body-text-medium, 500);
+}
+
+.upper-nav-dropdown-container>ul ul {
+  padding-left: 0;
+  padding-top: 9px;
+}
+
+.upper-nav-dropdown-container>ul>li {
+  padding-top: 19px;
+  break-inside: avoid;
+}
+
+.upper-nav-dropdown-container>ul>li>ul>li {
+  line-height: 1.45;
+  padding: 4px 0;
+}
+
+.upper-nav-menu .upper-nav-arrow {
+  width: 8px;
+  height: 18px;
+  display: inline-block;
+  filter: invert(100%) sepia(8%) saturate(7%) hue-rotate(360deg) brightness(100%) contrast(93%);
+  transform: rotate(90deg);
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.upper-navigation .show,
+#pfe-navigation__secondary-links .show {
+  display: block;
+}
+
+.upper-nav-menu .upper-nav-links[aria-expanded=true]:hover,
+.upper-nav-menu .upper-nav-links[aria-expanded=true]:focus,
+.upper-nav-menu .upper-nav-links[aria-expanded=true]:active {
+  background-color: #fff;
+  color: #151515;
+}
+
+.upper-nav-menu .upper-nav-links[aria-expanded=true] {
+  background-color: #fff;
+  color: black;
+  border-top-color: #b8bbbe;
+  position: relative;
+  z-index: 1;
+}
+
+.upper-nav-dropdown-container>ul a {
+  font-family: var(--rh-font-family-body-text, "Red Hat Text", "RedHatText", Arial, sans-serif);
+  font-size: 14px;
+  color: var(--rh-color-accent-base-on-light, #0066cc);
+  text-decoration: none;
+}
+
+select {
+  background-image: url("/assets/images/down-arrow.svg");
+  background-position: 98% 50%;
+  background-repeat: no-repeat;
+}
+
+.pfe-navigation__search {
+  background-color: var(--rh-color-white, #ffffff);
+}
+
+.pfe-navigation__search form {
+  display: flex;
+  margin: auto;
+  gap: var(--rh-space-md, 8px);
+  max-width: 992px;
+}
+
+pfe-navigation [slot=secondary-links] .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4px;
+  gap: var(--rh-space-md, 8px);
+}
+
+pfe-navigation [slot=secondary-links] .buttons a {
+  padding: 1em;
+  border: 1px solid #d2d2d2;
+  border-radius: 3px;
+  color: #06c;
+  text-decoration: none;
+  flex-basis: calc(50% - 5px);
+  text-align: center;
+  cursor: pointer;
+  font-weight: var(--rh-font-weight-code-regular, 400);
+  font-family: var(--rh-font-family-body-text, "Red Hat Text", "RedHatText", Arial, sans-serif);
+}
+
+pfe-navigation [slot=secondary-links] .mobile-lang-select {
+  margin: 3rem 0;
+  display: flex;
+  position: relative;
+  border-top: 1px solid #d2d2d2;
+  border-right: 1px solid #d2d2d2;
+  border-left: 1px solid #d2d2d2;
+  border-bottom: 1px solid #3c3f42;
+  cursor: pointer;
+}
+
+pfe-navigation [slot=secondary-links] .mobile-lang-select label {
+  position: absolute;
+  bottom: 100%;
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-family: var(--rh-font-family-body-text, "Red Hat Text", "RedHatText", Arial, sans-serif);
+}
+
+pfe-navigation [slot=secondary-links] .mobile-lang-select select {
+  background-color: #fff;
+  flex-basis: 100%;
+  color: black;
+  appearance: none;
+  font-size: 16px;
+  padding: 6px 24px 6px 8px;
+  line-height: 24px;
+  font-family: var(--rh-font-family-body-text, "Red Hat Text", "RedHatText", Arial, sans-serif);
+  border-style: none;
+}
+
+select {
+  background-image: url("/assets/images/down-arrow.svg");
+  background-position: 98% 50%;
+  background-repeat: no-repeat;
+}
+
+#inputLabel {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#inputLabel form {
+  width: 100%;
+}
+
+.input-box {
+  width: 100%;
+  height: 36px;
+  padding: 0 8px;
+  font-size: var(--rh-font-size-body-text-md, 1rem);
+  font-family: var(--rh-font-family-body-text, "Red Hat Text", "RedHatText", Arial, sans-serif);
+}
+
+.input-box::placeholder {
+  color: #6A6E73;
+  font-size: var(--rh-font-size-body-text-md, 1rem);
+  font-weight: var(--rh-font-weight-code-regular, 400);
+  font-family: var(--rh-font-family-body-text, "Red Hat Text", "RedHatText", Arial, sans-serif);
+  line-height: 24px;
+}
+
+  .pfe-navigation__custom-nav-container {
+    padding: var(--rh-space-lg, 16px) 0;
+  }
+
+  .spacing-32 {
+    gap: var(--rh-space-2xl, 32px);
+  }
+
+  h2.pfe-menu-item-heading {
+    margin: 0;
+    padding: 0;
+    color: var(--rh-color-canvas-black, #151515);
+    font-size: var(--rh-font-size-body-text-lg, 1.125rem);
+  }
+
+  ul.menu__products-container {
+    margin: var(--rh-space-2xl, 32px) 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;
+    gap: var(--rh-space-2xl, 32px);
+  }
+
+  a.pfe-navigation__custom-nav-link {
+    color: var(--rh-color-accent-base-on-light, #0066cc);
+    border: 1px solid transparent;
+    display: inline-block;
+  }
+
+  a.pfe-navigation__custom-nav-link:hover {
+    background: var(--rh-color-gray-10, #f2f2f2);
+    outline: 8px solid var(--rh-color-gray-10, #f2f2f2);
+  }
+
+  a.pfe-navigation__custom-nav-link:focus {
+    border: 1px dashed var(--rh-color-accent-base-on-light, #0066cc);
+    outline: 0;
+  }
+
+  .pfe-navigation__custom-nav-title {
+    display: inline-block;
+  }
+
+  a.pfe-navigation__custom-nav-link:hover .pfe-navigation__custom-nav-title {
+    text-decoration: underline;
+    color: var(--rh-color-canvas-black, #151515);
+  }
+
+  .pfe-navigation__custom-nav-body {
+    display: inline-block;
+    font-size: var(--rh-font-size-body-text-sm, 0.875rem);
+    color: var(--rh-color-gray-60, #4d4d4d);
+    margin-top: var(--rh-space-md, 8px);
+  }
+
+  ul.menu__use-cases-container {
+    margin: var(--rh-space-lg, 16px) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a.pfe-list-link {
+    display: inline-block;
+    color: var(--rh-color-accent-base-on-light, #0066cc);
+    border: 1px solid transparent;
+    margin-top: var(--rh-space-lg, 16px);
+  }
+
+  a.pfe-list-link:hover {
+    text-decoration: underline;
+    color: var(--rh-color-canvas-black, #151515);
+  }
+
+  a.pfe-list-link:focus {
+    border: 1px dashed var(--rh-color-accent-base-on-light, #0066cc);
+    outline: 0;
+  }
+
+  .pfe-navigation--footer {
+    border-top: 1px solid var(--rh-color-gray-30, #c7c7c7);
+    margin-top: var(--rh-space-3xl, 48px);
+    padding-top: var(--rh-space-3xl, 48px);
+  }
+
+  @media (min-width: 767px) {
+    .pfe-navigation__search form {
+      padding: var(--rh-space-2xl, 32px) 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .upper-navigation,
+    .right-navigation {
+      display: none;
+    }
+
+    ul.menu__products-container {
+      grid-template-columns: 1fr;
+      grid-auto-flow: row;
+      gap: var(--rh-space-2xl, 32px);
+    }
+  }
+
+  @media(max-width: 1199px) {
+    .pfe-navigation__custom-nav-container {
+      padding: 0;
+    }
+  }
+</style>
+<header>
+  <!-- @Todo: Add translations-->
+  <a href="#pfe-navigation" id="global-skip-to-nav" class="skip-link visually-hidden">Skip to navigation</a>
+  <a href="#main-content" class="skip-link visually-hidden">Skip to content</a>
+  <!-- Utility Navigation links -->
+  <nav id="upper-navigation" class="upper-navigation" aria-labelledby="upper-navigation-label"
+    data-analytics-region="upper-navigation">
+    <h2 id="upper-navigation-label" class="upper-nav-hidden">Featured links</h2>
+    <div class=" upper-nav-container">
+      <ul class="upper-nav-menu">
+        <li>
+          <a href="https://access.redhat.com/" class="upper-nav-links" data-analytics-text="Support"
+            data-analytics-category="Featured Links">Support</a>
+        </li>
+        <li>
+          <a href="https://console.redhat.com/" class="upper-nav-links" data-analytics-text="Console"
+            data-analytics-category="Featured Links">Console</a>
+        </li>
+        <li>
+          <a href="https://developers.redhat.com/" class="upper-nav-links" data-analytics-text="Developers"
+            data-analytics-category="Featured Links">Developers</a>
+        </li>
+        <li>
+          <a href="https://www.redhat.com/en/products/trials" class="upper-nav-links" data-analytics-text="Start a trial"
+            data-analytics-category="Featured Links">Start a trial</a>
+        </li>
+        <li>
+          <button id="all-red-hat" class="upper-nav-links" data-analytics-text="All Red Hat" data-analytics-category="Featured Links"
+           aria-expanded="false" data-analytics-linktype="tab">
+            All Red Hat<svg class="upper-nav-arrow" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024"
+              viewBox="0 0 1024 1024" aria-hidden="true">
+              <path
+                d="M810.642 511.557c0 8.905-3.447 16.776-10.284 23.613L322.31 1013.216c-6.835 6.837-14.706 10.284-23.61 10.284s-16.776-3.447-23.613-10.284l-51.303-51.303c-6.837-6.837-10.284-14.707-10.284-23.612s3.447-16.775 10.284-23.61L626.972 511.5 223.784 108.31c-6.837-6.835-10.284-14.706-10.284-23.61s3.447-16.776 10.284-23.613l51.303-51.303C281.924 2.947 289.794-.5 298.7-.5s16.775 3.447 23.61 10.284L800.36 487.83c6.837 6.837 10.284 14.708 10.284 23.613v.114" />
+            </svg>
+          </button>
+          <div class="upper-nav-dropdown-container" :class="{ 'show': toggleDropdownClicked }">
+            <ul>
+              <li>
+                <span>For customers</span>
+                <ul>
+                  <li>
+                    <a href="https://access.redhat.com/support" data-pzn-audience="customers"
+                      data-analytics-category="All Red Hat|For customers" data-analytics-text="Customer support">
+                      Customer support
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://access.redhat.com/management" data-pzn-audience="customers"
+                      data-analytics-category="All Red Hat|For customers"
+                      data-analytics-text="Subscription management">
+                      Subscription management
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://access.redhat.com/support/cases" data-pzn-audience="customers"
+                      data-analytics-category="All Red Hat|For customers" data-analytics-text="Support cases">
+                      Support cases
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://catalog.redhat.com/" data-analytics-category="All Red Hat|For customers"
+                      data-analytics-text="Red Hat Ecosystem Catalog">Red Hat Ecosystem Catalog</a>
+                  </li>
+                  <li>
+                    <a href="https://catalog.redhat.com/partners" data-analytics-category="All Red Hat|For customers"
+                      data-analytics-text="Find a partner">Find a partner</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span>For partners</span>
+                <ul>
+                  <li>
+                    <a href="https://connect.redhat.com/partner-admin/dashboard" data-pzn-audience="partners"
+                      data-analytics-category="All Red Hat|For partners" data-analytics-text="Partner portal">
+                      Partner portal
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://connect.redhat.com/en/support" data-pzn-audience="partners"
+                      data-analytics-category="All Red Hat|For partners" data-analytics-text="Partner support">
+                      Partner support
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://connect.redhat.com/" data-pzn-audience="partners"
+                      data-analytics-category="All Red Hat|For partners" data-analytics-text="Become a partner">
+                      Become a partner
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span>Try, buy, &amp; sell</span>
+                <ul>
+                  <li>
+                    <a href="https://marketplace.redhat.com/en-us"
+                      data-analytics-category="All Red Hat|Try, buy, &amp; sell"
+                      data-analytics-text="Red Hat Marketplace">Red Hat Marketplace</a>
+                  </li>
+                  <li>
+                    <a href="https://www.redhat.com/en/store"
+                      data-analytics-category="All Red Hat|Try, buy, &amp; sell"
+                      data-analytics-text="Red Hat Store">Red Hat Store</a>
+                  </li>
+                  <li>
+                    <a href="https://www.redhat.com/en/contact"
+                      data-analytics-category="All Red Hat|Try, buy, &amp; sell"
+                      data-analytics-text="Contact sales">Contact sales</a>
+                  </li>
+                  <li>
+                    <a href="https://www.redhat.com/en/products/trials"
+                      data-analytics-category="All Red Hat|Try, buy, &amp; sell"
+                      data-analytics-text="Start a trial">Start a trial</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span>Learning resources</span>
+                <ul>
+                  <li>
+                    <a href="https://www.redhat.com/en/services/training-and-certification"
+                      data-analytics-category="All Red Hat|Learning resources"
+                      data-analytics-text="Training and certification">Training and certification</a>
+                  </li>
+                  <li>
+                    <a href="https://cloud.redhat.com/learn" data-analytics-category="All Red Hat|Learning resources"
+                      data-analytics-text="Hybrid cloud learning hub">Hybrid cloud learning hub</a>
+                  </li>
+                  <li>
+                    <a href="https://www.redhat.com/en/interactive-labs"
+                      data-analytics-category="All Red Hat|Learning resources"
+                      data-analytics-text="Interactive labs">Interactive labs</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.redhat.com/" data-analytics-category="All Red Hat|Learning resources"
+                      data-analytics-text="Learning community">Learning community</a>
+                  </li>
+                  <li>
+                    <a href="https://www.redhat.com/en/tv" data-analytics-category="All Red Hat|Learning resources"
+                      data-analytics-text="Red Hat TV">Red Hat TV</a>
+                  </li>
+                  <li>
+                    <a href="https://www.redhat.com/architect/portfolio/" data-analytics-category="All Red Hat|Learning resources"
+                      data-analytics-text="Architecture center">Architecture cente</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span>Open source communities</span>
+                <ul>
+                  <li>
+                    <a href="https://access.redhat.com/accelerators" data-analytics-category="All Red Hat|Open source communities"
+                      data-analytics-text="Global advocacy">Global advocacy</a>
+                  </li>
+                  <li>
+                    <a href="https://www.redhat.com/en/about/our-community-contributions" data-analytics-category="All Red Hat|Open source communities"
+                      data-analytics-text="How we contribute">How we contribute</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Primary Navigation links -->
+  <pfe-navigation full-width id="pfe-navigation" role="banner" pf-sticky="true" :lang="localeProperties.code">
+    <nav class="pfe-navigation" aria-label="Main Navigation">
+      <div class="pfe-navigation__logo-wrapper" id="pfe-navigation__logo-wrapper">
+        <a href="/" class="pfe-navigation__logo-link">
+          <img class="
+            pfe-navigation__logo-image
+            pfe-navigation__logo-image--screen
+            pfe-navigation__logo-image--small" src="assets/Logo-Red_Hat-Documentation-A-Reverse-RGB.svg" width="240"
+            height="40" alt="Red Hat Documentation" />
+        </a>
+      </div>
+      <pfe-navigation-main role="navigation">
+        <ul>
+          <li>
+            <pfe-navigation-item>
+              <div slot="trigger">
+                <a href="/">Documentation</a>
+              </div>
+              <div slot="tray" hidden>
+                <div class="pfe-navigation-grid">
+                  <div class="pfe-navigation--column desktop-col-span-4 tablet-col-span-all">
+                    <slot name=custom-nav-documentation></slot>
+                  </div>
+                </div>
+              </div>
+            </pfe-navigation-item>
+          </li>
+          <li>
+            <pfe-navigation-item>
+              <div slot="trigger">
+                <a href="/">Learn</a>
+              </div>
+              <div slot="tray" hidden>
+                <div class="pfe-navigation-grid">
+                  <div class="pfe-navigation--column desktop-col-span-4 tablet-col-span-all">
+                    <slot name=custom-nav-learn></slot>
+                  </div>
+                </div>
+              </div>
+            </pfe-navigation-item>
+          </li>
+        </ul>
+      </pfe-navigation-main>
+    </nav>
+    <div slot="search" class="pfe-navigation__search">
+      <form id="pfe-nav-search" @submit="submitSearch" role="search">
+        <input class="input-box" id="inputBox" placeholder="Search documentation" />
+        <rh-button>Search</rh-button>
+      </form>
+    </div>
+    <div slot="secondary-links">
+      <div class="hidden-at-desktop hidden-at-tablet buttons">
+        <a href="https://access.redhat.com/" data-analytics-category="More Red Hat" data-analytics-text="Support">
+          Support</a>
+        <a href="https://console.redhat.com/" data-analytics-category="More Red Hat" data-analytics-text="Console">
+          Console</a>
+        <a href="https://developers.redhat.com/" data-analytics-category="More Red Hat"
+          data-analytics-text="Developers" >Developers</a>
+        <a href="https://www.redhat.com/en/products/trials" data-analytics-category="More Red Hat"
+          data-analytics-text="Start a trial" >Start a trial</a>
+        <a href="https://www.redhat.com/en/contact" data-analytics-category="More Red Hat"
+          data-analytics-text="Contact">Contact</a>
+      </div>
+    </div>
+    <div slot="custom-nav-documentation" class="pfe-navigation__custom-nav-container">
+      <div class="grid grid-col-lg-3 grid-col-md-3 spacing-32">
+        <div class="span-md-2 span-xs-3">
+          <h2 id="menu-item__popular-products" class="pfe-menu-item-heading">Explore popular products</h2>
+          <ul aria-labelledby="menu-item__popular-products" class="menu__products-container">
+            <li><a href="/en/documentation/red_hat_enterprise_linux" class="pfe-navigation__custom-nav-link"><span
+                  class="pfe-navigation__custom-nav-title">Red Hat Enterprise Linux</span><span
+                  class="pfe-navigation__custom-nav-body">A flexible, stable operating system to support hybrid cloud
+                  innovation.</span></a></li>
+            <li><a href="/en/documentation/openshift_container_platform" class="pfe-navigation__custom-nav-link"><span
+                  class="pfe-navigation__custom-nav-title">Red Hat OpenShift Container Platform</span><span
+                  class="pfe-navigation__custom-nav-body">A container platform to build, modernize,
+                  and deploy applications at scale.</span></a></li>
+            <li><a href="/en/documentation/red_hat_ansible_automation_platform"
+                class="pfe-navigation__custom-nav-link"><span class="pfe-navigation__custom-nav-title">Red Hat Ansible
+                  Automation Platform</span><span class="pfe-navigation__custom-nav-body">A foundation for implementing
+                  enterprise-wide automation.</span></a></li>
+            <li><a href="/en/documentation/red_hat_openshift_service_on_aws"
+                class="pfe-navigation__custom-nav-link"><span class="pfe-navigation__custom-nav-title">Red Hat OpenShift
+                  Service on AWS</span><span class="pfe-navigation__custom-nav-body">A fully managed service to build
+                  and manage
+                  your containerized applications on AWS.</span></a></li>
+            <li><a href="/en/documentation/red_hat_enterprise_linux_ai" class="pfe-navigation__custom-nav-link"><span
+                  class="pfe-navigation__custom-nav-title">Red Hat Enterprise Linux AI</span><span
+                  class="pfe-navigation__custom-nav-body">Develop, test, and run Granite large
+                  language models (LLMs) on a foundation model platform.</span></a></li>
+          </ul>
+        </div>
+        <div class="span-md-1 span-xs-3">
+          <h2 id="menu-item__use-cases" class="pfe-menu-item-heading">Featured use cases</h2>
+          <ul aria-labelledby="menu-item__use-cases" class="menu__use-cases-container">
+            <li><a href="/en/documentation/red_hat_enterprise_linux_ai/1.1/html/building_your_rhel_ai_environment/index"
+                class="pfe-list-link">Building your RHEL AI environment</a></li>
+            <li><a
+                href="/en/documentation/red_hat_ansible_automation_platform/2.5/html/getting_started_with_ansible_automation_platform/index"
+                class="pfe-list-link">Getting started with Ansible Automation Platform</a></li>
+            <li><a
+                href="/en/documentation/openshift_container_platform/4.17/html/virtualization/about#virt-what-you-can-do-with-virt_about-virt"
+                class="pfe-list-link">Manage your VMs with OpenShift Virtualization</a></li>
+            <li><a href="/en/documentation/red_hat_insights/1-latest/html/getting_started_with_red_hat_insights"
+                class="pfe-list-link">Identify and resolve issues by using Red Hat Insights</a></li>
+            <li><a
+                href="/en/documentation/red_hat_openstack_services_on_openshift/18.0/html-single/planning_your_deployment/index"
+                class="pfe-list-link">Building a hybrid cloud with Red Hat OpenStack Services on OpenShift</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pfe-navigation--footer"><rh-cta variant="primary">
+          <a href="/en/products">Explore all products</a></rh-cta></div>
+    </div>
+    <div slot="custom-nav-learn" class="pfe-navigation__custom-nav-container">
+      <div class="grid grid-col-lg-3 grid-col-md-3 spacing-32">
+        <div class="span-md-3 span-xs-3">
+          <h2 id="menu-item__learn-resources" class="pfe-menu-item-heading">Discover learning resources</h2>
+          <ul aria-labelledby="menu-item__learn-resources" class="menu__products-container">
+            <li><a href="http://access.redhat.com/start" class="pfe-navigation__custom-nav-link"><span
+                  class="pfe-navigation__custom-nav-title">Get started with Red Hat</span><span
+                  class="pfe-navigation__custom-nav-body">Discover the value of your Red Hat subscriptions and
+                  products by following these learning paths.</span></a></li>
+            <li><a href="https://developers.redhat.com/learn" class="pfe-navigation__custom-nav-link"><span
+                  class="pfe-navigation__custom-nav-title">Red Hat Developer learning resources</span><span
+                  class="pfe-navigation__custom-nav-body">Learn how to build flexible, scalable,
+                  secure, and reliable applications with Red Hat’s latest solutions.</span></a></li>
+            <li><a href="https://www.redhat.com/en/services/training-and-certification"
+                class="pfe-navigation__custom-nav-link"><span class="pfe-navigation__custom-nav-title">Red Hat Training
+                  and Certification</span><span class="pfe-navigation__custom-nav-body">Access hands-on training to gain
+                  knowledge,
+                  get certified, and stay ahead of technology trends. </span></a></li>
+            <li><a href="https://cloud.redhat.com/getting-started" class="pfe-navigation__custom-nav-link"><span
+                  class="pfe-navigation__custom-nav-title">Get started with the Red Hat Hybrid Cloud
+                  Console</span><span class="pfe-navigation__custom-nav-body">Build, deploy, and
+                  optimize workloads across the hybrid cloud with our hosted products and services.</span></a></li>
+            <li><a href="https://www.redhat.com/en/interactive-labs" class="pfe-navigation__custom-nav-link"><span
+                  class="pfe-navigation__custom-nav-title">Learn with Red Hat interactive labs</span><span
+                  class="pfe-navigation__custom-nav-body">Learn with self-paced, hands-on,
+                  interactive lessons based on real use cases.</span></a></li>
+            <li><a href="https://cloud.redhat.com/experts/" class="pfe-navigation__custom-nav-link"><span
+                  class="pfe-navigation__custom-nav-title">Explore Managed OpenShift tutorials</span><span
+                  class="pfe-navigation__custom-nav-body">Red Hat experts share step-by-step
+                  tutorials that can help you get the most out of your cluster. </span></a></li>
+            <li><a href="https://cloud.redhat.com/learn" class="pfe-navigation__custom-nav-link"><span
+                  class="pfe-navigation__custom-nav-title">Red Hat Hybrid Cloud learning hub</span><span
+                  class="pfe-navigation__custom-nav-body">Whatever your expertise with Red Hat
+                  Cloud Services, build what you need with these learning resources.</span></a></li>
+            <li><a href="https://access.redhat.com/labs/" class="pfe-navigation__custom-nav-link"><span
+                  class="pfe-navigation__custom-nav-title">Optimize your system with Red Hat Customer Portal
+                  labs</span><span class="pfe-navigation__custom-nav-body">Improve performance,
+                  troubleshoot issues, identify security problems, and optimize your configurations.</span></a></li>
+            <li><a href="http://redhat.com/architect/portfolio/" class="pfe-navigation__custom-nav-link"><span
+                  class="pfe-navigation__custom-nav-title">Red Hat Architecture Center</span><span
+                  class="pfe-navigation__custom-nav-body">Provides examples, patterns, and use cases
+                  for designing and building with Red Hat solutions.</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </pfe-navigation>
+</header>
+
+<!-- Header -->
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <!-- Navigation tabs (sticky) -->
+  
+    
+      <rh-navigation-secondary>
+        <a href="/" slot="logo">AI on OpenShift</a>
+        <ul slot="nav">
+          
+            
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li>
+      <a href="../../..">
+        
+
+  <!-- Navigation link icon -->
+  
+    
+  
+
+  <!-- Navigation link title -->
+  Home
+
+      </a>
+    </li>
+  
+
+          
+            
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Navigation item with nested items -->
+  
+    
+
+    <!-- Recurse, if the first item has further nested items -->
+    
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Navigation item with nested items -->
+  
+    
+
+    <!-- Recurse, if the first item has further nested items -->
+    
+      <li>
+        <a href="../../../whats-new/whats-new/">
+          
+
+  <!-- Navigation link icon -->
+  
+    
+  
+
+  <!-- Navigation link title -->
+  Overview
+
+        </a>
+      </li>
+    
+
+  <!-- Navigation item -->
+  
+
+
+    <!-- Nested navigation item -->
+    
+
+  <!-- Navigation item -->
+  
+
+          
+            
+
+  <!-- Determine classes -->
+  
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    
+
+    <!-- Recurse, if the first item has further nested items -->
+    
+      
+
+  <!-- Determine classes -->
+  
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    
+
+    <!-- Recurse, if the first item has further nested items -->
+    
+      <li>
+        <a href="../using-cli/">
+          
+
+  <!-- Navigation link icon -->
+  
+    
+  
+
+  <!-- Navigation link title -->
+  ODH/RHOAI How-Tos
+
+        </a>
+      </li>
+    
+
+  <!-- Navigation item -->
+  
+
+
+    <!-- Nested navigation item -->
+    
+
+  <!-- Navigation item -->
+  
+
+          
+            
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Navigation item with nested items -->
+  
+    
+
+    <!-- Recurse, if the first item has further nested items -->
+    
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Navigation item with nested items -->
+  
+    
+
+    <!-- Recurse, if the first item has further nested items -->
+    
+      <li>
+        <a href="../../../tools-and-applications/ensemble-serving/ensemble-serving/">
+          
+
+  <!-- Navigation link icon -->
+  
+    
+  
+
+  <!-- Navigation link title -->
+  Applications and Patterns
+
+        </a>
+      </li>
+    
+
+  <!-- Navigation item -->
+  
+
+
+    <!-- Nested navigation item -->
+    
+
+  <!-- Navigation item -->
+  
+
+          
+            
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Navigation item with nested items -->
+  
+    
+
+    <!-- Recurse, if the first item has further nested items -->
+    
+      <li>
+        <a href="../../../predictive-ai/what-is-predictive-ai/">
+          
+
+  <!-- Navigation link icon -->
+  
+    
+  
+
+  <!-- Navigation link title -->
+  Predictive AI
+
+        </a>
+      </li>
+    
+
+  <!-- Navigation item -->
+  
+
+          
+            
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Navigation item with nested items -->
+  
+    
+
+    <!-- Recurse, if the first item has further nested items -->
+    
+      <li>
+        <a href="../../../generative-ai/what-is-generative-ai/">
+          
+
+  <!-- Navigation link icon -->
+  
+    
+  
+
+  <!-- Navigation link title -->
+  Generative AI
+
+        </a>
+      </li>
+    
+
+  <!-- Navigation item -->
+  
+
+          
+        </ul>
+      </rh-navigation-secondary>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Determine classes -->
+
+
+  
+
+
+
+<!-- Navigation -->
+<nav
+  class="md-nav md-nav--primary md-nav--lifted"
+  aria-label="Navigation"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href="../../.."
+      title="AI on OpenShift"
+      class="md-nav__button md-logo"
+      aria-label="AI on OpenShift"
+      data-md-component="logo"
+    >
+      
+  <img src="../../../assets/robot-head.svg" alt="logo">
+
+    </a>
+    AI on OpenShift
+  </label>
+
+  <!-- Repository information -->
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/opendatahub-io-contrib/ai-on-openshift" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+
+  <!-- Navigation list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    What's new?
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            What's new?
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../whats-new/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Latest updates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/why-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why this site?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/openshift/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenShift and AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/opendatahub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Data Hub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/openshift-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenShift AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ODH/RHOAI How-Tos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ODH/RHOAI How-Tos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    From Zero to Workbench
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            From Zero to Workbench
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Using the UI
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-developer-hub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Developer Hub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Advanced Configuration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../accelerator-profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accelerator Profiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom-notebooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom notebooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom-runtime-triton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Serving Runtime (Triton)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dashboard configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gitops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitOps (CRs, objects,...)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kueue-preemption/readme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kueue preemption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model-serving-type-modification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model serving type modification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nvidia-gpus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NVIDIA GPUs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../openshift-group-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenShift Group Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../single-stack-serving-certificate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single stack serving certificate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kserve-timeout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KServe Timeout Issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kserve-uwm-dashboard-metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RHOAI Metrics Dashboard for Model Serving
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connect-vscode-to-rhoai-wb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connect to RHOAI Workbench Kernel from VS Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom-workbench-anythingllm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AnythingLLM as Custom Workbench
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-pruner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPU pruner
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../odh-tools-and-extensions-companion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ODH Tools and Extensions Companion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../image-puller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Kubernetes Image Puller Operator to Speed Up Start-Up Times
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enable-function-calling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function / Tool Calling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-guardrails/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLM GuardRails
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stable_diffusion_safety_checker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stable Diffusion Safety Checker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Applications and Patterns
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Applications and Patterns
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Model Serving
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Model Serving
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools-and-applications/ensemble-serving/ensemble-serving/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ensemble Serving
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data processing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Data processing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools-and-applications/apache-nifi/apache-nifi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apache NiFi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools-and-applications/apache-spark/apache-spark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apache Spark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools-and-applications/riva/riva/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NVIDIA Riva
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../patterns/starproxy/starproxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Starburst/Trino proxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Workflows
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Workflows
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools-and-applications/airflow/airflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apache Airflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools-and-applications/mlflow/mlflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools-and-applications/datasciencepipeline/datasciencepipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Science Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools-and-applications/minio/minio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Minio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools-and-applications/rclone/rclone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rclone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Architecture Patterns
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture Patterns
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../patterns/bucket-notifications/bucket-notifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bucket notifications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../patterns/kafka/kafka-to-object-storage/kafka-to-object-storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kafka to object storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../patterns/kafka/kafka-to-serverless/kafka-to-serverless/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kafka to serverless
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Predictive AI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Predictive AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../predictive-ai/what-is-predictive-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What is Predictive AI?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Demos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Demos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/credit-card-fraud-detection-mlflow/credit-card-fraud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credit Card Fraud Detection with MLFlow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/financial-fraud-detection/financial-fraud-detection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Financial Fraud Detection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/retail-object-detection/retail-object-detection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Object Detection in Retail
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/smart-city/smart-city/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Smart City
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/telecom-customer-churn-airflow/telecom-customer-churn-airflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Telecom Customer Churn with Airflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/water-pump-failure-prediction/water-pump-failure-prediction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Water Pump Failure Prediction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/xray-pipeline/xray-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XRay Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/yolov5-training-serving/yolov5-training-serving/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YOLOv5 Training and Serving
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Generative AI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Generative AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../generative-ai/what-is-generative-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What is Generative AI?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../generative-ai/llm-serving/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLM Serving
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Demos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Demos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/llm-chat-doc/llm-chat-doc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chat with your documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/codellama-continue/codellama-continue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code assistant
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/llama2-finetune/llama2-finetune/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fine-tune Llama2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/podman-ai-lab-to-rhoai/podman-ai-lab-to-rhoai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From Podman AI Lab to OpenShift AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/stable-diffusion/stable-diffusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Text to Image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="from-zero-to-workbench-using-the-gui">From Zero To Workbench using the GUI</h1>
+<p>In this <a href="https://github.com/stratus-ss/openshift-ai/blob/main/docs/rendered/OpenShift_AI_User_Interface.md">repo</a>, you will find all the straightforward instructions to quickly deploy OpenShift AI using mainly the <strong>OpenShift Console UI</strong>.</p>
+<p>Detailed instructions, screenshots, examples, all is there to get you quickly started!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This documentation was produced working off of mainly OpenShift v4.14 and OpenShift AI 2.7. The artifacts directory contains sample configuration files which are used throughout this repo to demonstrate various concepts. While an effort will be made to ensure that these artifacts stay up to date, there is a possibility that they will not always work as intended.</p>
+<p>Suggestions and pull requests are welcome to maintain this content up to date!</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <script type="module">
+  import "@rhds/elements/rh-back-to-top/rh-back-to-top.js";
+</script>
+<rh-back-to-top href="#">Back to top</rh-back-to-top>
+        
+      </main>
+      
+        <rh-footer data-analytics-region="page-footer">
+  <a slot="logo" href="https://redhat.com/en" data-analytics-category="Footer" data-analytics-text="Logo">
+    <img alt="Red Hat logo" src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" loading="lazy" />
+  </a>
+  <rh-footer-social-link slot="social-links"
+      icon="linkedin"
+      href="https://www.linkedin.com/company/red-hat"
+      data-analytics-region="social-links-exit"
+      data-analytics-category="Footer|social-links"
+      data-analytics-text="LinkedIn"
+      accessible-label="LinkedIn"></rh-footer-social-link>
+  <rh-footer-social-link slot="social-links"
+      icon="youtube"
+      href="https://www.youtube.com/user/RedHatVideos"
+      data-analytics-region="social-links-exit"
+      data-analytics-category="Footer|social-links"
+      data-analytics-text="YouTube"
+      accessible-label="YouTube"></rh-footer-social-link>
+  <rh-footer-social-link slot="social-links"
+      icon="facebook"
+      href="https://www.facebook.com/redhatinc"
+      data-analytics-region="social-links-exit"
+      data-analytics-category="Footer|social-links"
+      data-analytics-text="Facebook"
+      accessible-label="Facebook"></rh-footer-social-link>
+  <rh-footer-social-link slot="social-links"
+      icon="x"
+      href="https://twitter.com/RedHat"
+      data-analytics-region="social-links-exit"
+      data-analytics-category="Footer|social-links"
+      data-analytics-text="Twitter"
+      accessible-label="X/Twitter"></rh-footer-social-link>
+  <h3 slot="links" data-analytics-text="Products">Products</h3>
+  <ul slot="links">
+    <li><a href="https://redhat.com/en/technologies/linux-platforms/enterprise-linux" data-analytics-category="Footer|Products" data-analytics-text="Red Hat Enterprise Linux">Red Hat Enterprise Linux</a></li>
+    <li><a href="https://redhat.com/en/technologies/cloud-computing/openshift" data-analytics-category="Footer|Products" data-analytics-text="Red Hat OpenShift">Red Hat OpenShift</a></li>
+    <li><a href="https://redhat.com/en/technologies/management/ansible" data-analytics-category="Footer|Products" data-analytics-text="Red Hat Ansible Automation Platform">Red Hat Ansible Automation Platform</a></li>
+    <li><a href="https://redhat.com/en/technologies/cloud-computing/openshift/cloud-services" data-analytics-category="Footer|Products" data-analytics-text="Cloud services">Cloud services</a></li>
+    <li><a href="https://redhat.com/en/technologies/all-products" data-analytics-category="Footer|Products" data-analytics-text="See all products">See all products</a></li>
+  </ul>
+  <h3 slot="links" data-analytics-text="Tools">Tools</h3>
+  <ul slot="links">
+    <li><a href="https://sso.redhat.com" data-analytics-category="Footer|Tools" data-analytics-text="My account">My account</a></li>
+    <li><a href="https://redhat.com/en/services/training-and-certification" data-analytics-category="Footer|Tools" data-analytics-text="Training and certification">Training and certification</a></li>
+    <li><a href="https://access.redhat.com" data-analytics-category="Footer|Tools" data-analytics-text="Customer support">Customer support</a></li>
+    <li><a href="https://developers.redhat.com/" data-analytics-category="Footer|Tools" data-analytics-text="Developer resources">Developer resources</a></li>
+    <li><a href="https://learn.redhat.com/" data-analytics-category="Footer|Tools" data-analytics-text="Learning community">Learning community</a></li>
+    <li><a href="https://connect.redhat.com/" data-analytics-category="Footer|Tools" data-analytics-text="Partner resources">Partner resources</a></li>
+    <li><a href="https://redhat.com/en/resources" data-analytics-category="Footer|Tools" data-analytics-text="Resource library">Resource library</a></li>
+  </ul>
+  <h3 slot="links" data-analytics-text="Try buy sell">Try, buy & sell</h3>
+  <ul slot="links">
+    <li><a href="https://redhat.com/en/products/trials" data-analytics-category="Footer|Try buy sell" data-analytics-text="Product trial center">Product trial center</a></li>
+    <li><a href="https://marketplace.redhat.com" data-analytics-category="Footer|Try buy sell" data-analytics-text="Red Hat Marketplace">Red Hat Marketplace</a></li>
+    <li><a href="https://catalog.redhat.com/" data-analytics-category="Footer|Tools" data-analytics-text="Red Hat Ecosystem Catalog">Red Hat Ecosystem Catalog</a></li>
+    <li><a href="http://redhat.force.com/finder/" data-analytics-category="Footer|Try buy sell" data-analytics-text="Find a partner">Find a partner</a></li>
+    <li><a href="https://www.redhat.com/en/store" data-analytics-category="Footer|Try buy sell" data-analytics-text="Red Hat Store">Red Hat Store</a></li>
+    <li><a href="https://cloud.redhat.com/" data-analytics-category="Footer|Tools" data-analytics-text="Console">Console</a></li>
+  </ul>
+  <h3 slot="links" data-analytics-text="Communicate">Communicate</h3>
+  <ul slot="links">
+    <li><a href="https://redhat.com/en/services/consulting-overview#contact-us" data-analytics-category="Footer|Communicate" data-analytics-text="Contact consulting">Contact consulting</a></li>
+    <li><a href="https://redhat.com/en/contact" data-analytics-category="Footer|Communicate" data-analytics-text="Contact sales">Contact sales</a></li>
+    <li><a href="https://redhat.com/en/services/training-and-certification/contact-us" data-analytics-category="Footer|Communicate" data-analytics-text="Contact training">Contact training</a></li>
+    <li><a href="https://redhat.com/en/about/social" data-analytics-category="Footer|Communicate" data-analytics-text="Social">Social</a></li>
+  </ul>
+  <rh-footer-block slot="main-secondary">
+    <h3 slot="header" data-analytics-text="About Red Hat">About Red Hat</h3>
+    <p> We're the world's leading provider of enterprise open source solutions—including Linux, cloud, container, and Kubernetes. We deliver hardened solutions that make it easier for enterprises to work across platforms and environments, from the core datacenter to the network edge.</p>
+  </rh-footer-block>
+  <rh-footer-block slot="main-secondary">
+    <h3 slot="header" data-analytics-text="Subscribe to our newsletter Red Hat Shares">Subscribe to our newsletter, Red Hat Shares</h3>
+    <rh-cta><a href="https://www.redhat.com/en/email-preferences?newsletter=RH-Shares&intcmp=7016000000154xCAAQ" data-analytics-category="Footer|About Red Hat" data-analytics-text="Sign up now">Sign up now</a></rh-cta>
+  </rh-footer-block>
+
+  <!-- Universal Footer -->
+  <rh-footer-universal slot="universal">
+    <h3 slot="links-primary" data-analytics-text="Red Hat legal and privacy links" hidden>Red Hat legal and privacy links</h3>
+    <ul slot="links-primary" data-analytics-region="page-footer-bottom-primary">
+      <li><a href="https://redhat.com/en/about/company" data-analytics-category="Footer|Corporate" data-analytics-text="About Red Hat">About Red Hat</a></li>
+      <li><a href="https://redhat.com/en/jobs" data-analytics-category="Footer|Corporate" data-analytics-text="Jobs">Jobs</a></li>
+      <li><a href="https://redhat.com/en/events" data-analytics-category="Footer|Corporate" data-analytics-text="Events">Events</a></li>
+      <li><a href="https://redhat.com/en/about/office-locations" data-analytics-category="Footer|Corporate" data-analytics-text="Locations">Locations</a></li>
+      <li><a href="https://redhat.com/en/contact" data-analytics-category="Footer|Corporate" data-analytics-text="Contact Red Hat">Contact Red Hat</a></li>
+      <li><a href="https://redhat.com/en/blog" data-analytics-category="Footer|Corporate" data-analytics-text="Red Hat Blog">Red Hat Blog</a></li>
+      <li><a href="https://redhat.com/en/about/our-culture/diversity-equity-inclusion" data-analytics-category="Footer|Corporate" data-analytics-text="Diversity equity and inclusion">Diversity, equity, and inclusion</a></li>
+      <li><a href="https://coolstuff.redhat.com/" data-analytics-category="Footer|Corporate" data-analytics-text="Cool Stuff Store">Cool Stuff Store</a></li>
+      <li><a href="https://www.redhat.com/en/summit" data-analytics-category="Footer|Corporate" data-analytics-text="Red Hat Summit">Red Hat Summit</a></li>
+    </ul>
+    <rh-footer-copyright slot="links-secondary">© 2025 Red Hat, Inc.</rh-footer-copyright>
+    <h3 slot="links-secondary" data-analytics-text="Red Hat legal and privacy links" hidden>Red Hat legal and privacy links</h3>
+    <ul slot="links-secondary" data-analytics-region="page-footer-bottom-secondary">
+      <li><a href="https://redhat.com/en/about/privacy-policy" data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="Privacy statement">Privacy statement</a></li>
+      <li><a href="https://redhat.com/en/about/terms-use" data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="Terms of use">Terms of use</a></li>
+      <li><a href="https://redhat.com/en/about/all-policies-guidelines" data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="All policies and guidelines">All policies and guidelines</a></li>
+      <li><a href="https://redhat.com/en/about/digital-accessibility" data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="Digital accessibility" class="active">Digital accessibility</a></li>
+      <!-- If your website supports trustarc include this item to add Cookie Preferences to your site. -->
+      <!-- <li><span id="teconsent"> </span></li> -->
+    </ul>
+  </rh-footer-universal>
+</rh-footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>
